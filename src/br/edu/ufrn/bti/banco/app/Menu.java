@@ -61,5 +61,33 @@ public class Menu {
 		
 		return c;
 	}
+	
+	public String getNumeroConta() {
+		scanner.nextLine();
+		
+		System.out.println("> Número da conta [-c para voltar]:");
+		String numero = scanner.nextLine();
+		
+		if (numero.isEmpty()) {
+			System.out.println(">>> ERRO: Número da conta não pode ser vazio");
+			return null;
+		} else if (numero.equalsIgnoreCase("-c")) {
+			return null;
+		}
+		
+		return numero;
+	}
+	
+	public double getValor() {		
+		System.out.println("> Valor:");
+		double valor = scanner.nextDouble();
+		
+		if (valor <= 0) {
+			System.out.println(">>> ERRO: Valor inválido");
+			return -1;
+		}
+		
+		return valor;
+	}
 
 }

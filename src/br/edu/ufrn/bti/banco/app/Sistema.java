@@ -9,6 +9,16 @@ public class Sistema {
 	private Menu menu = new Menu();
 	private int id = 101;
 	private ArrayList<Conta> contas = new ArrayList<Conta>();
+	
+	private Conta buscarConta(String numero) {
+		for (Conta c : this.contas) {
+			if (c.getNumero().equals(numero)) {
+				return c;
+			}
+		}
+		
+		return null;
+	}
 
 	public void processar() {
 		switch (this.operacaoAtual) {
@@ -27,6 +37,20 @@ public class Sistema {
 			}
 			
 			case 2: {
+				String numero = menu.getNumeroConta();
+				Conta c = this.buscarConta(numero);
+				
+				if (c == null) {
+					System.out.println(">>> ERRO: Conta não encontrada");
+					return;
+				}
+				
+				double valor = menu.getValor();
+				
+				if (valor > 0) {
+					c.depositar(valor);
+					System.out.println("> Depósito realizado com sucesso!");
+				}
 				
 				break;
 			}

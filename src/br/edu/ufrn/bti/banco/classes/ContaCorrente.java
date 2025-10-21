@@ -34,7 +34,7 @@ public class ContaCorrente extends Conta implements ITributavel {
 		System.out.printf("> Tipo: Conta Corrente\n");
 		System.out.printf("> Cliente: %s\n", this.cliente);
 		System.out.printf("> Número: %s\n", this.numero);
-		System.out.printf("> Saldo: R$%.2f\n", this.saldo);
+		System.out.printf("> Saldo: R$ %.2f\n", this.saldo);
 	}
 	
 }
